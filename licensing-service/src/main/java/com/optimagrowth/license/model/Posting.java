@@ -15,8 +15,8 @@ public class Posting {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long postingId;
-    private Double longitude;
-    private Double latitude;
+    private Float longitude;
+    private Float latitude;
     private String title;
     private String text;
     private String textSnippet;
