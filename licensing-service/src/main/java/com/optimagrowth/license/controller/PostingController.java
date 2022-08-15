@@ -26,10 +26,7 @@ public class PostingController {
         return ResponseEntity.ok(service.get(new ReadPostingDto(postingId)));
     }
 
-    @GetMapping(value="/find-nearby/")
-    public ResponseEntity<Set<PostingSnippetDto>> getPosting(FindNearbyDto request) {
-        return ResponseEntity.ok(service.getNearbyPostings(request));
-    }
+
 
     @PutMapping
     public ResponseEntity<PostingView> updatePosting(@RequestBody EditPostingDto request) {

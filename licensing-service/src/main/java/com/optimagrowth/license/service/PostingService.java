@@ -64,9 +64,4 @@ public class PostingService implements PostingServiceInterface{
         }
         return nearbyPostings;
     }
-
-
-
-
-
 }

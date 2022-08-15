@@ -8,7 +8,7 @@ services:
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
-      POSTGRES_DB:       "ostock_dev"
+      POSTGRES_DB:       "cloudpractice_dev"
     volumes:
         - ./init.sql:/docker-entrypoint-initdb.d/1-init.sql
         - ./data.sql:/docker-entrypoint-initdb.d/2-data.sql
@@ -22,7 +22,7 @@ services:
       timeout: 5s
       retries: 5
   configserver:
-    image: ostock/configserver:0.0.1-SNAPSHOT
+    image: cloudpractice/configserver:0.0.1-SNAPSHOT
     ports:
        - "8071:8071"
     environment:
@@ -32,7 +32,7 @@ services:
         aliases:
           - "configserver"
   licensingservice:
-    image: ostock/licensing-service:0.0.2-SNAPSHOT
+    image: cloudpractice/licensing-service:0.0.2-SNAPSHOT
     # die vars kann ich verändern indem ich über cli mit passe
     environment:
       PROFILE: "dev"

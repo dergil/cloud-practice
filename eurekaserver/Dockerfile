@@ -4,7 +4,7 @@
 FROM openjdk:11-slim as build
 
 # Add Maintainer Info
-LABEL maintainer="Illary Huaylupo <illaryhs@gmail.com>"
+LABEL maintainer="dergil"
 
 # The application's jar file
 ARG JAR_FILE
