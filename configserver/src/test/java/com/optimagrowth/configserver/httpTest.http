@@ -1,4 +1,4 @@
-GET http://localhost:8071/licensing-service/dev
+GET http://configserver:8071/licensing-service/dev
 Accept: application/json
 
 ###

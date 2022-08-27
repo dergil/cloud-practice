@@ -3,15 +3,11 @@ services:
   database:
     image: postgres:latest
     ports:
-    # changed port bc votesnack db is already running on that port
-      - "5532:5432"
+      - "5432:5432"
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
-      POSTGRES_DB:       "cloudpractice_dev"
-    volumes:
-        - ./init.sql:/docker-entrypoint-initdb.d/1-init.sql
-        - ./data.sql:/docker-entrypoint-initdb.d/2-data.sql
+      POSTGRES_DB: "ostock_dev"
     networks:
       backend:
         aliases:
@@ -33,13 +29,11 @@ services:
           - "configserver"
   licensingservice:
     image: cloudpractice/licensing-service:0.0.2-SNAPSHOT
-    # die vars kann ich verändern indem ich über cli mit passe
     environment:
       PROFILE: "dev"
       CONFIGSERVER_URI: "http://configserver:8071"
       CONFIGSERVER_PORT:   "8071"
-      # changed port bc votesnack db is already running on that port
-      DATABASESERVER_PORT: "5532"
+      DATABASESERVER_PORT: "5432"
       ENCRYPT_KEY:       "IMSYMMETRIC"
     depends_on:
       database:
